@@ -1,1 +1,29 @@
 Iteration 1 (MAR 22 - APR 4)
+
+  1. Design and Implement the Database
+
+  2. Build the framework of server
+
+  3. Build the framework of front-end
+
+Iteration 2 (APR 5 - APR 18)
+
+  1. User and Amdin UC 1 Log in
+	
+  2. User UC 3 Query Fund Information
+
+  3. User UC 4 Trade Funds
+
+  4. User UC 5 Check Personal Account
+
+Iteration 3 (APR 19 - MAY 2)
+
+  1. User UC 2 Learn Basic Fund Information
+
+  2. Admin UC 2 Manage Shareholders
+
+  3. Admin UC 3 Allocate Shareholders Remaining Balance
+
+Iteration 4 (MAY 3 - MAY 16)
+
+  1. Test and Debug
