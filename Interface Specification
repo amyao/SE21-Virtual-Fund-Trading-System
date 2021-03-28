@@ -1,0 +1,140 @@
+# Module 1 User
+
+## userEntity
+public class UserEntity {
+    private String id;
+    private String userName;
+    private String pwd;
+    private String userPayPwd;
+    private int questionIndex;
+    private String answer;
+}
+
+## IUserService
+public interface IUserService {
+    /* Create User when they register */
+    void createUser(UserEntity userEntity);
+    
+    /* Update User Login Pwd or Payment Pwd */
+    void updateUser(UserEntity userEntity);
+    
+    /* Delete User */
+    void deleteUser(String userId);
+    
+    /* Return User with userId */ 
+    UserEntity getUserById(String userId);
+}
+
+## IPaymentService
+public interface IPaymentService {
+    int checkPayPwd(String userId, String userPayPwd);
+}
+
+
+#Module 2 Trade
+
+## accountEntity
+public class AccountEntity {
+    private String userId;
+    private double accountBalance;
+    private double yesterdayYield;
+    private double holdingYield;
+    private double totalYield;
+    private int[] selfListed;
+    private List<HoldingEntity> currentHoldings;//fix this
+}
+
+## holdingEntity
+public class HoldingEntity {
+    private String userId;
+    private int fundId;
+    private double holdingShares;
+    private String startHoldingDate;
+    private double totalYield;
+    private double[] yieldHistory;
+}
+
+## orderEntity
+public class OrderEntity {
+    private String userId;
+    private String orderId;
+    private int fundId;
+    private int orderType; //0:buy, 1:sell
+    private double sellingShares; //
+    private double buyingAmount; //
+    private String orderDate; //change this
+    private String orderStatus;//processing, success, withdrawn
+}
+
+## tradeEntity
+public class TradeEntity {
+    private String userId;
+    private String orderId;
+    private int fundId;
+    private int tradeType; //0:buy, 1:sell
+    private double tradeShares;
+    private double tradePrice;
+    private String orderDate;//change
+    private String tradeDate;//change
+}
+
+## IOrderService
+public interface IOrderService {
+    /* create a new order to buy or sell fund */
+    void createOrder(OrderEntity orderEntity);
+    
+    /* withdraw the buy/sell order that previously created */
+    /* If withdrawal is successful, return 0; otherwise, return 1 */
+    int withdrawOrder(OrderEntity orderEntity);
+    
+    /* list all orders created by the user */
+    void listOrdersByUserId(String userId);
+    
+    /* apply to increase the balance */
+    void increaseBalanceApp(String userId, double amount);
+}
+
+## ITradeInfoService
+public interface ITradeInfoService {
+    /* list out all funds that the user currently holds */
+    void listHoldingByUserId(String userId);
+    
+    /* return the balance of the user */
+   double getBalanceByUserId(String userId);
+    
+    /* return the yesterday yield of the user*/
+   double getYesterdayYieldByUserId(String userId);
+    
+    /* return the yield since holding the current funds*/
+    double getHoldingsYieldByUserId(String userId);
+    
+    /* return the total yield since initial*/
+    double getTotalYieldByUserId(String userId);
+    
+    /* list out all the SelfListed funds*/
+    void listSelfListedByUserId(String userId);
+    
+    /* list of the history of yields of user's current holding funds */
+    void getYieldHistory(String userId);
+}
+
+
+# Module 3 Admin
+
+## adminEntity
+public class AdminEntity {
+    private String adminName;
+    private String adminPwd;
+}
+
+## IAdminService
+public interface IAdminService {
+    /* admit the order to be processed into a trade history and user's holding fund after a certain time */
+    void processOrder(String orderId); 
+    
+    /* admit to increase the balance of a user account */
+    void processIncreaseBalanceApp(String userId, double amount);
+    
+    /* get the list of all users */
+    void listUsers();
+}
