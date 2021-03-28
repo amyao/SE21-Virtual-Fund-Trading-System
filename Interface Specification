@@ -28,6 +28,7 @@ public interface IUserService {
 ## IPaymentService
 public interface IPaymentService {
     /* check whether payment password is correct before creating order */
+    /* If input matches record, return 0; otherwise, return 1 */
     int checkPayPwd(String userId, String userPayPwd);
 }
 
