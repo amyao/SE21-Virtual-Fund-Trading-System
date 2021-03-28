@@ -6,7 +6,7 @@ public class UserEntity {
     private String userName;
     private String pwd;
     private String userPayPwd;
-    private int questionIndex;
+    private int questionIndex; //Login Pwd Security Question
     private String answer;
 }
 
@@ -27,7 +27,7 @@ public interface IUserService {
 
 ## IPaymentService
 public interface IPaymentService {
-    /* check whether payment password is correct before creating order */
+    /* Check whether payment password is correct before creating an order */
     /* If input matches record, return 0; otherwise, return 1 */
     int checkPayPwd(String userId, String userPayPwd);
 }
@@ -62,10 +62,12 @@ public class OrderEntity {
     private String orderId;
     private int fundId;
     private int orderType; //0:buy, 1:sell
-    private double sellingShares; //
-    private double buyingAmount; //
-    private String orderDate; //change this
-    private String orderStatus;//processing, success, withdrawn
+    /* Only on of the two following two properties is used for one order: */
+    /* e.g. If the order is of type 0:buy, buyingAmount is to be used and sellingShares is set to 0 */
+    private double sellingShares;
+    private double buyingAmount;
+    private String orderDate; //will be of type Date
+    private String orderStatus;//one of the following: processing, success, withdrawn
 }
 
 ## tradeEntity
@@ -76,47 +78,47 @@ public class TradeEntity {
     private int tradeType; //0:buy, 1:sell
     private double tradeShares;
     private double tradePrice;
-    private String orderDate;//change
-    private String tradeDate;//change
+    private String orderDate; //will be of type Date
+    private String tradeDate; //will be of type Date
 }
 
 ## IOrderService
 public interface IOrderService {
-    /* create a new order to buy or sell fund */
+    /* Create a new order to buy or sell fund */
     void createOrder(OrderEntity orderEntity);
     
-    /* withdraw the buy/sell order that previously created */
+    /* Withdraw the buy/sell order that previously created */
     /* If withdrawal is successful, return 0; otherwise, return 1 */
     int withdrawOrder(OrderEntity orderEntity);
     
-    /* list all orders created by the user */
+    /* List all orders created by the user */
     void listOrdersByUserId(String userId);
     
-    /* apply to increase the balance */
+    /* Apply to increase the balance */
     void increaseBalanceApp(String userId, double amount);
 }
 
 ## ITradeInfoService
 public interface ITradeInfoService {
-    /* list out all funds that the user currently holds */
+    /* List out all funds that the user currently holds */
     void listHoldingByUserId(String userId);
     
-    /* return the balance of the user */
+    /* Return the balance of the user */
    double getBalanceByUserId(String userId);
     
-    /* return the yesterday yield of the user*/
+    /* Return the yield of yesterday of the user */
    double getYesterdayYieldByUserId(String userId);
     
-    /* return the yield since holding the current funds*/
+    /* Return the yield since holding the current funds */
     double getHoldingsYieldByUserId(String userId);
     
-    /* return the total yield since initial*/
+    /* Return the total yield since initial */
     double getTotalYieldByUserId(String userId);
     
-    /* list out all the SelfListed funds*/
+    /* List out all the SelfListed funds */
     void listSelfListedByUserId(String userId);
     
-    /* list of the history of yields of user's current holding funds */
+    /* List of the history of yields of user's current holding funds */
     void getYieldHistory(String userId);
 }
 
@@ -131,12 +133,12 @@ public class AdminEntity {
 
 ## IAdminService
 public interface IAdminService {
-    /* admit the order to be processed into a trade history and user's holding fund after a certain time */
+    /* Admit the order to be processed into a trade history and user's holding fund after a certain time */
     void processOrder(String orderId); 
     
-    /* admit to increase the balance of a user account */
+    /* Admit to increase the balance of a user account */
     void processIncreaseBalanceApp(String userId, double amount);
     
-    /* get the list of all users */
+    /* Get the list of all users */
     void listUsers();
 }
