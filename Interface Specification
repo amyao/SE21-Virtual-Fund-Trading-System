@@ -62,7 +62,7 @@ public class OrderEntity {
     private String orderId;
     private int fundId;
     private int orderType; //0:buy, 1:sell
-    /* Only on of the two following two properties is used for one order: */
+    /* Only one of the two following two properties is used for one order: */
     /* e.g. If the order is of type 0:buy, buyingAmount is to be used and sellingShares is set to 0 */
     private double sellingShares;
     private double buyingAmount;
@@ -87,9 +87,9 @@ public interface IOrderService {
     /* Create a new order to buy or sell fund */
     void createOrder(OrderEntity orderEntity);
     
-    /* Withdraw the buy/sell order that previously created */
+    /* Withdraw the buy/sell order that previously created by the orderId */
     /* If withdrawal is successful, return 0; otherwise, return 1 */
-    int withdrawOrder(OrderEntity orderEntity);
+    int withdrawOrder(String orderId);
     
     /* List all orders created by the user */
     void listOrdersByUserId(String userId);
