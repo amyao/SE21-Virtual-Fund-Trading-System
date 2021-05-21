@@ -1,10 +1,10 @@
-SE21-Virtual-Fund-Trading-System
+## SE21-Virtual-Fund-Trading-System
 
-1. Introduction:
-	This is a virtual fund trading system where you can practice trading skills with virtual money. Real data is used in our system. Have fun with it. 
+* 1 Introduction:
+ * This is a virtual fund trading system where you can practice trading skills with virtual money. Real data is used in our system. Have fun with it. 
 
-2. Transaction Rules:
-	A user can place an order to buy or sell a fund, but it takes some time for the order to convert into a trade. A user can withdraw the order within the time period. For example, when you place an order to buy a fund, you will immediately see your order record, but you may need to wait for a while before you can find the fund in your holding list.
+* 2. Transaction Rules:
+ * A user can place an order to buy or sell a fund, but it takes some time for the order to convert into a trade. A user can withdraw the order within the time period. For example, when you place an order to buy a fund, you will immediately see your order record, but you may need to wait for a while before you can find the fund in your holding list.
 	For more details, please refer to the Q&A section of our website and the detailed instructions when you request to buy or sell a fund. 
 
 Contributors:
