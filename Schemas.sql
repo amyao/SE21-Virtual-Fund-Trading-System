@@ -17,7 +17,7 @@ CREATE TABLE If Not Exists `USER_ENTITY` (
     `answer` varchar(64) DEFAULT NULL,
     primary key(uuid),
     unique key(uuid)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB;
 
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE If Not Exists `ACCOUNT_ENTITY` (
     `holdingYield` decimal(15,5) DEFAULT NULL,
     `totalYield` decimal(15,5) DEFAULT NULL,
     primary key (uuid)
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+    ) ENGINE=InnoDB;
 -- --------------------------------------------------------
 --
 -- Table structure for table `HoldingEntity`
@@ -50,7 +50,7 @@ CREATE TABLE If Not Exists `HOLDING_ENTITY` (
     `holdingShares` decimal(15,5) DEFAULT NULL,
     `startHoldingDate` TIMESTAMP DEFAULT NULL,
     `transactionPrice` decimal(15,5) DEFAULT NULL
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+    ) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -58,7 +58,7 @@ CREATE TABLE If Not Exists `selfListed` (
     `uuid` varchar(64) NOT NULL,
     `fundId` varchar(20) NOT NULL,
     unique index(`uuid`, `fundId`)
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+    ) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -68,7 +68,7 @@ CREATE TABLE If Not Exists `yieldHistory` (
     `yieldRecord` decimal(15,5) DEFAULT NULL,
     `date` TIMESTAMP DEFAULT NULL,
     unique index(`uuid` ,`fundId`,`date`)
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+    ) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -82,7 +82,7 @@ CREATE TABLE `TRADE_ENTITY` (
    `orderDate` TIMESTAMP DEFAULT NULL,
    `tradeDate` TIMESTAMP DEFAULT NULL,
     primary key (orderID)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -96,7 +96,7 @@ CREATE TABLE If Not Exists `ORDER_ENTITY` (
     `orderDate` TIMESTAMP DEFAULT NULL,
     `orderStatus` varchar(20) DEFAULT NULL,
     primary key (orderID)
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+    ) ENGINE=InnoDB;
 
 
 
