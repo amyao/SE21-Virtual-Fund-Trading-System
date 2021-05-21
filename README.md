@@ -3,7 +3,8 @@
 
 ## Resource Code Repositories
 > front-end: https://github.com/amyao/vfts-front-vue-master
-> back-end: (wait to be updated)
+
+> back-end: https://github.com/amyao/vfts-server-springboot-master
 
 ## A Demo of run through VFTS
 > Demo Link: https://drive.google.com/file/d/1B-FMyru1hPhyUMU6oh5_CJ6AXMu3IBBn/view?usp=sharing
