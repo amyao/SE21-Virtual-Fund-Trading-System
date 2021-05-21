@@ -1,13 +1,12 @@
 -- --------------------------------------------------------
---
--- Table structure for table `UserEntity`
---
+
 CREATE DATABASE IF NOT EXISTS db;
-/*[CHARACTER SET charset_name]
-[COLLATE collation_name]*/
 
 use db;
 
+--
+-- Table structure for table `User_Entity`
+--
 CREATE TABLE If Not Exists `USER_ENTITY` (
     `uuid` varchar(64) NOT NULL,
     `username` varchar(20) NOT NULL,
@@ -19,6 +18,9 @@ CREATE TABLE If Not Exists `USER_ENTITY` (
     unique key(uuid)
 ) ENGINE=InnoDB;
 
+--
+-- Table structure for table `Account_Entity`
+--
 CREATE TABLE If Not Exists `ACCOUNT_ENTITY` (
     `uuid` varchar(64) NOT NULL,
     `startingBalance` decimal(15,5) DEFAULT 10000,
@@ -29,11 +31,11 @@ CREATE TABLE If Not Exists `ACCOUNT_ENTITY` (
     `totalYield` decimal(15,5) DEFAULT NULL,
     primary key (uuid)
     ) ENGINE=InnoDB;
--- --------------------------------------------------------
---
--- Table structure for table `HoldingEntity`
---
 
+ 
+--
+-- Table structure for table `Holding_Entity`
+--
 CREATE TABLE If Not Exists `HOLDING_ENTITY` (
     `uuid` varchar(64) NOT NULL,
     `fundId` varchar(20) NOT NULL,
@@ -42,16 +44,18 @@ CREATE TABLE If Not Exists `HOLDING_ENTITY` (
     `transactionPrice` decimal(15,5) DEFAULT NULL
     ) ENGINE=InnoDB;
 
--- --------------------------------------------------------
-
+--
+-- Table structure for table `selfListed`
+--
 CREATE TABLE If Not Exists `selfListed` (
     `uuid` varchar(64) NOT NULL,
     `fundId` varchar(20) NOT NULL,
     unique index(`uuid`, `fundId`)
     ) ENGINE=InnoDB;
 
--- --------------------------------------------------------
-
+--
+-- Table structure for table `yieldHistory`
+--
 CREATE TABLE If Not Exists `yieldHistory` (
     `uuid` varchar(64) NOT NULL,
     `fundId` varchar(20) NOT NULL,
@@ -60,9 +64,10 @@ CREATE TABLE If Not Exists `yieldHistory` (
     unique index(`uuid` ,`fundId`,`date`)
     ) ENGINE=InnoDB;
 
--- --------------------------------------------------------
-
-CREATE TABLE `TRADE_ENTITY` (
+--
+-- Table structure for table `TRADE_ENTITY`
+--
+CREATE TABLE If Not Exists `TRADE_ENTITY` (
    `uuid` varchar(64) NOT NULL,
    `orderId` varchar(64) NOT NULL,
    `fundId` varchar(20) DEFAULT NULL,
@@ -74,8 +79,9 @@ CREATE TABLE `TRADE_ENTITY` (
     primary key (orderID)
 ) ENGINE=InnoDB;
 
--- --------------------------------------------------------
-
+--
+-- Table structure for table `ORDER_ENTITY`
+--
 CREATE TABLE If Not Exists `ORDER_ENTITY` (
     `uuid` varchar(64) NOT NULL,
     `orderId` varchar(64) NOT NULL,
@@ -87,10 +93,5 @@ CREATE TABLE If Not Exists `ORDER_ENTITY` (
     `orderStatus` varchar(20) DEFAULT NULL,
     primary key (orderID)
     ) ENGINE=InnoDB;
-
-
-
-
-
-
-
+    
+    
