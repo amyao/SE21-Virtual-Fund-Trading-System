@@ -19,16 +19,6 @@ CREATE TABLE If Not Exists `USER_ENTITY` (
     unique key(uuid)
 ) ENGINE=InnoDB;
 
-
---
--- Table structure for table `AccountEntity`
---
-CREATE DATABASE IF NOT EXISTS db;
-/*[CHARACTER SET charset_name]
-[COLLATE collation_name]*/
-
-use db;
-
 CREATE TABLE If Not Exists `ACCOUNT_ENTITY` (
     `uuid` varchar(64) NOT NULL,
     `startingBalance` decimal(15,5) DEFAULT 10000,
