@@ -1,0 +1,15 @@
+Setups:
+Setup the database: 
+	Our program is based on a local server so you need to set up a database before running the program. Our database has the following settings, please strictly follow the properties for a smooth installation:
+	schema file: schema.sql under the root directory.
+	host: localhost (or 127.0.0.1)
+	portal: 3306
+	username: axl
+	password: 123456
+	You may use other settings (not recommended), but please make sure that you change the properties hard coded at application.properties and all the mybatis-config.xml files located at the src directory of each module (assembly, trade-service and order-service). 
+	
+Setup the server:
+Run the main function at assembly/src/main/java.com/vtfsApplication.java to start the server. Please note that our program uses JDK of version 15.0.2. If you are using IntelliJ IDEA, you can download the package in the Project Structure section. Simply click on the SDKs on the left-handed side and click on the ＋ sign on the left corner, and you can follow the instructions to download the package.
+If you are using JDK of other versions, you may, as an alternative (not recommended), change all the properties coded in the following six pop.xml files under trade-api, trade-rest, trade-service, user-api, user-rest, user-service, respectively.
+
+Setup the front end:
